@@ -25,6 +25,4 @@ Postgres Database
 #### Frontend Stack
 React/Redux
 
-[Schema](
-        Flags-Backend/images/schema.png
-      )
+![alt tag](https://github.com/Tobin-jn/Flags-Backend/images/schema.png)
