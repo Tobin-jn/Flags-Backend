@@ -8,7 +8,6 @@ General:
 * 2nd hint is country outline
 * Running tally of user's total points
 * Individual user accounts
-* Skip button
 * Show answer button
 * Point system
 * Correct w/no hints = 3pts; w/1 hint = 2pts; w/2 hints = 1pt; 'skip' = 0pts
