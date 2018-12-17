@@ -25,4 +25,6 @@ Postgres Database
 #### Frontend Stack
 React/Redux
 
-[Schema]()
+[Schema](
+        Flags-Backend/images/schema.png
+      )
