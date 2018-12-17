@@ -12,9 +12,11 @@ General:
 * Point system
 * Correct w/no hints = 3pts; w/1 hint = 2pts; w/2 hints = 1pt; 'skip' = 0pts
 * 'New flag' button
+
 Extension
 * Leaderboard
 * PWA
+* Dropdown menu for country names
 
 #### Backend Stack
 Express.js
