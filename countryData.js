@@ -1,4 +1,4 @@
-[ { name: 'Mexico',
+export const countries = [ { name: 'Mexico',
     flag: './images/flags/Mexico.png',
     outline: './images/outlines/Mexico.png',
     questions: 

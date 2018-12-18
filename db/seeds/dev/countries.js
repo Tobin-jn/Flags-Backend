@@ -28,8 +28,10 @@ exports.seed = function(knex, Promise) {
   return knex('facts').del()
     .then(() => knex('countries').del())
     .then(() => {
-      let countryPromises = countries.map(country => {
-        return createCountries(knex, country)
+      let countryPromises = [];
+
+      countries.forEach(country => {
+        countryPromises.push(createCountries(knex, country))
       })
         return Promise.all(countryPromises)
         })
