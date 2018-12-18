@@ -1,4 +1,4 @@
-export const countries = [ { name: 'Mexico',
+const countries = [ { name: 'Mexico',
     flag: './images/flags/Mexico.png',
     outline: './images/outlines/Mexico.png',
     questions: 
@@ -44,18 +44,6 @@ export const countries = [ { name: 'Mexico',
        'It takes up an entire continent',
        'The Bunyip &The Alice Springs News',
        'Western Plateau,Great Victoria Desert,Great Artesian Basin' ] },
-  { name: 'Answer',
-    flag: './images/flags/Answer.png',
-    outline: './images/outlines/Answer.png',
-    questions: 
-     [ 'Question',
-       'Question',
-       'Question',
-       'Question',
-       'Question',
-       'Question',
-       'Question',
-       'Question' ] },
   { name: 'Grenada',
     flag: './images/flags/Grenada.png',
     outline: './images/outlines/Grenada.png',
@@ -489,3 +477,5 @@ export const countries = [ { name: 'Mexico',
     outline: './images/outlines/Tonga.png',
     questions: 
      [ 'This South Pacific island nation is ruled by a king & a 30-member legislative assembly' ] } ]
+
+     module.exports = countries

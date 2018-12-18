@@ -4,7 +4,7 @@ const createCountries = (knex, country) => {
   return knex('countries').insert({
     name: country.name, 
     flag: country.flag, 
-    outline: country.outline, 
+    country_outline: country.outline, 
   }, 'id')
   .then(countryId => {
     let factPromises = []
