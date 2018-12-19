@@ -25,6 +25,14 @@ app.get('/api/v1/country', (request, response) => {
         })
   })
 
+app.get('/api/v1/country/:id', (request, response) => {
+    const { id } = request.params
+    
+    database('countries').where('id', id).select()
+        .then(country => response.status(200).json(country))
+        .catch(error => response.status(500).json(`Error fetching project: ${error.message}`))
+  })
+
 app.listen(app.get('port'), () => {
     console.log(`${app.locals.title} is running on ${app.get('port')}.`);
 });
