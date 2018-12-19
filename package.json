@@ -18,8 +18,10 @@
   },
   "homepage": "https://github.com/Tobin-jn/Flags-Backend#readme",
   "dependencies": {
+    "bcrypt": "^3.0.2",
     "body-parser": "^1.18.3",
     "express": "^4.16.4",
+    "express-cors": "0.0.3",
     "fs": "0.0.1-security",
     "knex": "^0.16.2",
     "nightmare": "^3.0.1",
