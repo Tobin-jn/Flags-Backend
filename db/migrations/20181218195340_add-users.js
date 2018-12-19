@@ -4,8 +4,8 @@ exports.up = function(knex, Promise) {
     knex.schema.createTable('users', function(table) {
       table.increments('id').primary();
       table.string('username').unique().notNullable();
-      table.string('password').notNullable();
-      table.boolean('admin').notNullable().defaultTo(false);
+      table.string('password_digest').notNullable();
+      table.string('token').notNullable();
       table.integer('points')
 
       table.timestamps(true, true);
