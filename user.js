@@ -60,7 +60,7 @@ const encryptPassword = (password) => {
 // randomBytes- generates random bytes that are used as a token
 const createToken = () => {
   return new Promise((resolve, reject) => {
-    crypto.randomBytes(16, (err, data) => {
+    crypto.randomBytes(16, (error, data) => {
       if (error) {
         reject(error)
       } else {
@@ -77,43 +77,54 @@ const createUser = (user) => {
     .insert(user)
 }
 
-// const signin = (request, response) => {
-//   // get user creds from request body
-//   const userRequest = request.body
-//   let user
-
-//   // find user based on username in request
-//   findUser(userRequest)
-//     .then(foundUser => {
-//       user = foundUser
-//   // check user's password_digest against pw from request
-//       return checkPassword(userRequest.password, foundUser)
-//     })
-//   // if match, create and save a new token for user
-//     .then(response => createToken())
-//     .then(token => updateToken(token, user))
-//     .then(() => {
-//       delete user.password_digest
-//   // send back json to client with token and user info
-//       response.status(200).json(user)
-//     })
-//     .catch(error) => console.log(error)
-// }
-
-// const findUser (userRequest) => {
-  
-// }
-
-// const checkPassword () => {
-  
-// }
-
-// const updateToken () => {
-
-// }
+const signin = (request, response) => {
+  const userRequest = request.body
+  let user
+//find user, if found in database, check the password, create a Token
+  findUser(userRequest)
+    .then(foundUser => {
+      user = foundUser
+      // console.log(userRequest.password)
+      return checkPassword(userRequest.password, foundUser)
+    })
+    .then((res) => createToken())
+    .then(token => updateUserToken(token, user))
+    .then(() => {
+      delete user[0].password_digest
+      response.status(200).json(user)
+    })
+    .catch((err) => console.error(err))
+}
 
 
+const findUser = (userRequest) => {
+  return database('users')
+    .where('username', userRequest.username)
+    .select()
+}
 
+const checkPassword = (reqPassword, foundUser) => {
+  return new Promise((resolve, reject) =>
+    bcrypt.compare(reqPassword, foundUser[0].password_digest, (err, response) => {
+        if (err) {
+          reject(err)
+        }
+        else if (response) {
+          resolve(response)
+        } else {
+          reject(new Error('Passwords do not match.'))
+        }
+    })
+  )
+}
+
+const updateUserToken = (token, user) => {
+  console.log(user)
+  return database('users')
+    .where('id', user[0].id)
+    .update( 'token', token)
+    .returning(['id', 'username', 'token'])
+}
 
 
 
