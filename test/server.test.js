@@ -15,9 +15,6 @@ describe('Server file', () => {
     //   .then(() => database.seed.run())
     // );
   
-    describe('/api/v1/country', () => {
-      
 
-      })
-    })
+  
   })
