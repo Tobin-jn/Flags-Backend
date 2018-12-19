@@ -33,6 +33,16 @@ app.get('/api/v1/country/:id', (request, response) => {
         .catch(error => response.status(500).json(`Error fetching project: ${error.message}`))
   })
 
+app.get('/api/v1/facts', (request, response) => {
+    database('facts').select()
+        .then(fact => {
+            response.status(200).json(fact)
+        })
+        .catch(error => {
+            response.status(500).json({ error: error.message });
+        })
+  })
+
 app.get('/api/v1/facts/:country_id', (request, response) => {
     const { country_id } = request.params
     
