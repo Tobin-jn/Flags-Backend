@@ -13,12 +13,11 @@ app.use( bodyParser.json() );
 app.set('port', process.env.PORT || 3000);
 app.locals.title = 'Flags'
 
-
+//USER TABLE
 app.post('/signup', User.signup)
+app.post('/signin', User.signin)
 
-app.get('/', (request, response) => {
-  response.send('Test Root Path');
-});
+
 
 app.listen(app.get('port'), () => {
   console.log(`${app.locals.title} is running on ${app.get('port')}.`);
