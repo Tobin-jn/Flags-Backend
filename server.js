@@ -4,6 +4,7 @@ const environment = process.env.NODE_ENV || 'development'
 const config = require('./knexfile')[environment]
 const database = require('knex')(config)
 const app = express()
+const User = require('./user')
 const cors = require('express-cors');
 app.use(cors());
 
