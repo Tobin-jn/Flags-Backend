@@ -1,26 +1,32 @@
-const User = require('./user.js')
-const express = require('express');
-const app = express();
-const bodyParser = require('body-parser');
+const express = require('express')
+const bodyParser = require('body-parser')
+const environment = process.env.NODE_ENV || 'development'
+const config = require('./knexfile')[environment]
+const database = require('knex')(config)
+const app = express()
 const cors = require('express-cors');
-const environment = process.env.NODE_ENV || 'development';
-const configuration = require('./knexfile')[environment];
-const database = require('knex')(configuration);
-
 app.use(cors());
-app.use( bodyParser.json() );
 
+app.use(bodyParser.json())
 app.set('port', process.env.PORT || 3000);
-app.locals.title = 'Flags'
+app.locals.title = 'Flags';
+app.use(express.static('public'));
 
-//USER TABLE
 app.post('/signup', User.signup)
 app.post('/signin', User.signin)
-
-
+  
+app.get('/api/v1/country', (request, response) => {
+    database('countries').select()
+        .then(country => {
+            response.status(200).json(country)
+        })
+        .catch(error => {
+            response.status(500).json({ error: error.message });
+        })
+  })
 
 app.listen(app.get('port'), () => {
-  console.log(`${app.locals.title} is running on ${app.get('port')}.`);
+    console.log(`${app.locals.title} is running on ${app.get('port')}.`);
 });
 
-module.exports = app;
+module.exports = app
