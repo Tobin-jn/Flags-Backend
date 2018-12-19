@@ -1,4 +1,4 @@
-const User = require('./models/user.js')
+const User = require('./user.js')
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
@@ -14,7 +14,7 @@ app.set('port', process.env.PORT || 3000);
 app.locals.title = 'Flags'
 
 
-app.post('/signup', User.signup
+app.post('/signup', User.signup)
 
 app.get('/', (request, response) => {
   response.send('Test Root Path');
