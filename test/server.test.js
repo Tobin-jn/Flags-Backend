@@ -10,10 +10,10 @@ chai.use(chaiHttp)
 
 describe('Server file', () => {
 
-    beforeEach(() => database.migrate.rollback()
-      .then(() => database.migrate.latest())
-      .then(() => database.seed.run())
-    );
+    // beforeEach(() => database.migrate.rollback()
+    //   .then(() => database.migrate.latest())
+    //   .then(() => database.seed.run())
+    // );
   
     describe('/api/v1/country', () => {
       
@@ -76,9 +76,30 @@ describe('Server file', () => {
         chai.request(app)
           .get('/api/v1/facts')
           .end((error, response) => {
-            expect(response.body[0].country_fact).to.equal('Tabasco Hoy')
-            expect(response.body[1].country_fact).to.equal('El Financiero & The Oaxaca Times')
-            expect(response.body[2].country_fact).to.equal('Oaxaca,Durango,Nayarit')
+            expect(response.body[0].country_fact).to.equal('Nhan Dan')
+            expect(response.body[1].country_fact).to.equal('Magyar Nemzet')
+            expect(response.body[2].country_fact).to.equal('Its first king is known in English as St. Stephen & locally as Szent Istvan')
+            done()
+          })
+      })
+    })
+
+    describe('/api/v1/facts/:id', () => {
+      
+      it('should return return status of 200 on a get request', (done) => {
+        chai.request(app)
+          .get('/api/v1/facts/1')
+          .end((error, response) => {
+            expect(response).to.have.status(200)
+            done()
+          })
+      })
+
+      it('should return a single fact', (done) => {
+        chai.request(app)
+          .get('/api/v1/facts/2')
+          .end((error, response) => {
+            expect(response.body[0].country_fact).to.equal('Magyar Nemzet')
             done()
           })
       })
