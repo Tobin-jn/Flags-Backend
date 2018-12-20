@@ -25,7 +25,6 @@ const createFacts = (knex, fact) => {
 }
 
 exports.seed = function(knex, Promise) {
-  // Deletes ALL existing entries
   return knex('facts').del()
     .then(() => knex('countries').del())
     .then(() => {
