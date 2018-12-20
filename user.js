@@ -5,12 +5,6 @@ const bcrypt = require('bcrypt') // bcrypt will encrypt passwords to be saved in
 const crypto = require('crypto') // built-in encryption node module
 
 
-// request object: {
-//        "username": "Alex0@turing.com",
-//        "password": "supersecret7",
-//        "points": 1002
-// }
-
 //POINTS IS NOT WORKING
 const signup = (request, response) => {
   // get user from request body
