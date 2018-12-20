@@ -11,7 +11,7 @@ const database = require('knex')(config);
 
 chai.use(chaiHttp)
 
-describe('User Table Middleware', () => {
+describe('User Middleware', () => {
 
   beforeEach(() =>
     database.migrate
@@ -78,54 +78,82 @@ describe('User Table Middleware', () => {
         })
     })
   })
+})
 
   // describe('signin', () => {
-  //   it('should return 422 if request is missing username or password', () => {
+    // it('should return 422 if request is missing username or password', () => {
+    //   const userRequest = {
+    //     password: 'superSecret'
+    //   }
 
-  //   })
+    //   chai
+    //     .request(app)
+    //     .post('/signin')
+    //     .send(userRequest)
+    //     .end((request, response) => {
+    //       console.log(response)
+    //       response.should.have.status(422)
+    //       response.body.should.have.property('error')
+    //       response.body.error.should.equal('Missing required parameter')
+    //   })
+    // })
 
-  //   it('should delete the user password_digest from the user response', () => {
-      
-  //   })
+    // it('should return status 201 if a user successfully signs up', () => {
+      // const userRequest = {
+      //   username: 'Alex@turing.com',
+      //   password: 'secret'
+      // }
 
-  //   it('should return status 201 if a user successfully signs up', () => {
-      
-  //   })
+      // chai
+      //   .request(app)
+      //   .post('/signin')
+      //   .send(userRequest)
+      //   .end((request, response) => {
+      //     response.should.have.status(201)
+      //     response.body.user[0].should.have.property('id')
+      //     response.body.user[0].should.have.property('username')
+      //     response.body.user[0].should.have.property('token')
+      //     response.body.user[0].id.should.equal(2)
+      //     done()
+      //   })
+    // })
+
+    // it('should delete the user password_digest from the user response', () => {
+    //   const userRequest = {
+    //     username: 'Alex@turing.com',
+    //     password: 'secret'
+    //   }
+
+    //   chai
+    //     .request(app)
+    //     .post('/signip')
+    //     .send(userRequest)
+    //     .end((request, response) => {
+    //       response.should.have.status(201)
+    //       response.body.user[0].should.have.property('id')
+    //       response.body.user[0].should.have.property('username')
+    //       response.body.user[0].should.have.property('token')
+    //       response.body.user[0].should.not.have.property('password')
+    //       response.body.user[0].should.not.have.property('password_digest')
+    //       response.body.user[0].id.should.equal(2)
+    //       done()
+    //     })
+    // })
   // })
 
   // describe('checkPassword', () => {
-  //   it('should ', () => {
-      
-  //   })
+  //   it('should ', () => {})
   // })
 
   // describe('createToken', () => {
-  //   it('should ', () => {
-      
-  //   })
+  //   it('should resolve a promise with an error', () => {})
+
+  //   it('should reject a promise with an error', () => {})
   // })
 
   // describe('createUser', () => {
-  //   it('should ', () => {
-      
-  //   })
+  //   it('should return an unresolved Promise for a new user', () => {})
   // })
 
-  // describe('encryptPassword', () => {
-  //   it('should ', () => {
-      
-  //   })
-  // })
 
-  // describe('findUser', () => {
-  //   it('should ', () => {
-      
-  //   })
-  // })
-
-  // describe('updateUserToken', () => {
-  //   it('should ', () => {
-      
-  //   })
-  // })
-})
+// })

@@ -63,7 +63,7 @@ const signin = (request, response) => {
         .then(token => updateUserToken(token, user))
         .then(() => {
           delete user[0].password_digest
-          response.status(200).json(user)
+          response.status(201).json(user)
         })
         .catch((error) => console.error(error))
     }
@@ -99,6 +99,7 @@ const createToken = () => {
 }
 
 const createUser = (user) => {
+  console.log('test')
   return database('users')
     .returning(['id', 'username', 'created_at', 'token'])
     .insert(user)
