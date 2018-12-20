@@ -59,4 +59,28 @@ describe('Server file', () => {
           })
       })
     })
+
+    describe('/api/v1/facts', () => {
+      
+      it('should return return status of 200 on a get request', (done) => {
+        chai.request(app)
+          .get('/api/v1/facts')
+          .end((error, response) => {
+            expect(response).to.have.status(200)
+            done()
+          })
+      })
+
+      it('should return an array of facts', (done) => {
+
+        chai.request(app)
+          .get('/api/v1/facts')
+          .end((error, response) => {
+            expect(response.body[0].country_fact).to.equal('Tabasco Hoy')
+            expect(response.body[1].country_fact).to.equal('El Financiero & The Oaxaca Times')
+            expect(response.body[2].country_fact).to.equal('Oaxaca,Durango,Nayarit')
+            done()
+          })
+      })
+    })
   })
