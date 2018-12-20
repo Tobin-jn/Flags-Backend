@@ -42,8 +42,9 @@ const signin = (request, response) => {
     'username',
     'password',
     ]) {
-    if (user[requiredParameter] === undefined) {
+    if (userRequest[requiredParameter] === undefined) {
       response.status(422).send({error: 'Missing required parameter'});
+      return
     } else {
       findUser(userRequest)
         .then(foundUser => {
@@ -91,7 +92,6 @@ const createToken = () => {
 }
 
 const createUser = (user) => {
-  console.log('test')
   return database('users')
     .returning(['id', 'username', 'created_at', 'token'])
     .insert(user)
