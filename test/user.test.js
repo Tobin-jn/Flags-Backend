@@ -141,20 +141,3 @@ describe('User Middleware', () => {
     })
   })
 })
-
-  // describe('checkPassword', () => {
-  //   it('should ', () => {})
-  // })
-
-  // describe('createToken', () => {
-  //   it('should resolve a promise with an error', () => {})
-
-  //   it('should reject a promise with an error', () => {})
-  // })
-
-  // describe('createUser', () => {
-  //   it('should return an unresolved Promise for a new user', () => {})
-  // })
-
-
-// })

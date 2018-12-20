@@ -98,6 +98,8 @@ const createUser = (user) => {
     .insert(user)
 }
 
+//pass in a user and expect a promise to be returned
+
 const encryptPassword = (password) => {
   return new Promise((resolve, reject) => {
     // bcrypt.hash(data, salt, callback)
@@ -127,5 +129,5 @@ const updateUserToken = (token, user) => {
 
 module.exports = {
   signup,
-  signin
+  signin,
 }
