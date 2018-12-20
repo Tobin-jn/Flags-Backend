@@ -60,20 +60,14 @@ describe('Server file', () => {
           })
       })
 
-      it('should return a 404 for a route that does not exist', done => {
-        chai.request(app)
-        .get('/elf')
-        .end((err, response) => {
-          expect(response).to.have.status(404);
-          done();
-        });
-      });
-
       it('should return a single country', (done) => {
         chai.request(app)
           .get('/api/v1/country/2')
           .end((error, response) => {
-            expect(response.body[0].name).to.equal('Hungary')
+            expect(response.body[0]).to.be.a('object')
+            expect(response.body[0]).to.have.property('name')
+            expect(response.body[0]).to.have.property('flag')
+            expect(response.body[2]).to.have.property('country_outline')
             done()
           })
       })
@@ -89,15 +83,6 @@ describe('Server file', () => {
             done()
           })
       })
-
-      it('should return a 404 for a route that does not exist', done => {
-        chai.request(app)
-        .get('/kevinmccalister')
-        .end((err, response) => {
-          expect(response).to.have.status(404);
-          done();
-        });
-      });
 
       it('should return an array of facts', (done) => {
 
