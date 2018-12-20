@@ -12,7 +12,7 @@ exports.up = function(knex, Promise) {
   
       knex.schema.createTable('facts', function(table) {
         table.increments('id').primary();
-        table.string('country_fact');
+        table.text('country_fact');
         table.integer('country_id').unsigned()
         table.foreign('country_id')
           .references('countries.id');
