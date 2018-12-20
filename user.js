@@ -64,7 +64,6 @@ const signin = (request, response) => {
 }
 
 const checkPassword = (requestPassword, foundUser) => {
-
   return new Promise((resolve, reject) =>
     bcrypt.compare(requestPassword, foundUser[0].password_digest, (error, response) => {
         if (error) {
@@ -97,8 +96,6 @@ const createUser = (user) => {
     .returning(['id', 'username', 'created_at', 'token'])
     .insert(user)
 }
-
-//pass in a user and expect a promise to be returned
 
 const encryptPassword = (password) => {
   return new Promise((resolve, reject) => {
