@@ -40,6 +40,7 @@ describe('Server file', () => {
         chai.request(app)
           .get('/api/v1/country')
           .end((error, response) => {
+            expect(response.body[0]).to.be.a('object')
             expect(response.body[0].name).to.equal('Mexico')
             expect(response.body[1].name).to.equal('Hungary')
             expect(response.body[2].name).to.equal('Vietnam')
@@ -103,6 +104,7 @@ describe('Server file', () => {
         chai.request(app)
           .get('/api/v1/facts')
           .end((error, response) => {
+            expect(response.body[0]).to.be.a('object')
             expect(response.body[0].country_fact).to.equal('Nhan Dan')
             expect(response.body[1].country_fact).to.equal('Magyar Nemzet')
             expect(response.body[2].country_fact).to.equal('Its first king is known in English as St. Stephen & locally as Szent Istvan')
@@ -135,6 +137,7 @@ describe('Server file', () => {
         chai.request(app)
           .get('/api/v1/facts/2')
           .end((error, response) => {
+            expect(response.body[0]).to.be.a('object')
             expect(response.body[0].country_fact).to.equal('Magyar Nemzet')
             done()
           })
