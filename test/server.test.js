@@ -10,10 +10,10 @@ chai.use(chaiHttp)
 
 describe('Server file', () => {
 
-    // beforeEach(() => database.migrate.rollback()
-    //   .then(() => database.migrate.latest())
-    //   .then(() => database.seed.run())
-    // );
+    beforeEach(() => database.migrate.rollback()
+      .then(() => database.migrate.latest())
+      .then(() => database.seed.run())
+    );
 
     describe('/api/v1/country', () => {
       
