@@ -4,14 +4,6 @@ const database = require('knex')(configuration);
 const bcrypt = require('bcrypt') 
 const crypto = require('crypto') 
 
-<<<<<<< HEAD
-=======
-// request object: {
-//        "username": "Alex0@turing.com",
-//        "password": "supersecret7",
-//        "points": 1002
-// }
->>>>>>> Refactor user.js, clean up functions, remove comments
 
 const signup = (request, response) => {
   const user = request.body
