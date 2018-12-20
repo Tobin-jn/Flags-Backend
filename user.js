@@ -118,8 +118,6 @@ const updateUserToken = (token, user) => {
     .returning(['id', 'username', 'token'])
 }
 
-
-
 module.exports = {
   signup,
   signin
