@@ -49,7 +49,7 @@ const signin = (request, response) => {
       findUser(userRequest)
         .then(foundUser => {
           user = foundUser
-          // console.log(userRequest.password)
+
           return checkPassword(userRequest.password, foundUser)
         })
         .then((res) => createToken())
@@ -64,6 +64,7 @@ const signin = (request, response) => {
 }
 
 const checkPassword = (requestPassword, foundUser) => {
+
   return new Promise((resolve, reject) =>
     bcrypt.compare(requestPassword, foundUser[0].password_digest, (error, response) => {
         if (error) {

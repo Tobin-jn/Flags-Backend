@@ -13,11 +13,11 @@ chai.use(chaiHttp)
 
 describe('User Middleware', () => {
 
-  beforeEach(() =>
-    database.migrate
-      .rollback()
-      .then(() => database.migrate.latest())
-      .then(() => database.seed.run()));
+  // beforeEach(() =>
+  //   database.migrate
+  //     .rollback()
+  //     .then(() => database.migrate.latest())
+  //     .then(() => database.seed.run()));
 
   describe('signup', () => {
     it('should return 422 if request is missing username or password', () => {
@@ -118,27 +118,27 @@ describe('User Middleware', () => {
         })
     })
 
-    // it('should delete the user password_digest from the user response', () => {
-    //   const userRequest = {
-    //     username: 'Alex@turing.com',
-    //     password: 'secret'
-    //   }
+    it('should delete the user password_digest from the user response', () => {
+      const userRequest = {
+        username: 'Bob2@Turing.com',
+        password: 'superSecretpassword'
+      }
 
-    //   chai
-    //     .request(app)
-    //     .post('/signip')
-    //     .send(userRequest)
-    //     .end((request, response) => {
-    //       response.should.have.status(201)
-    //       response.body.user[0].should.have.property('id')
-    //       response.body.user[0].should.have.property('username')
-    //       response.body.user[0].should.have.property('token')
-    //       response.body.user[0].should.not.have.property('password')
-    //       response.body.user[0].should.not.have.property('password_digest')
-    //       response.body.user[0].id.should.equal(2)
-    //       done()
-    //     })
-    // })
+      chai
+        .request(app)
+        .post('/signin')
+        .send(userRequest)
+        .end((request, response) => {
+          response.should.have.status(201)
+          response.body.user[0].should.have.property('id')
+          response.body.user[0].should.have.property('username')
+          response.body.user[0].should.have.property('token')
+          response.body.user[0].should.not.have.property('password')
+          response.body.user[0].should.not.have.property('password_digest')
+          response.body.user[0].id.should.equal(2)
+          done()
+        })
+    })
   })
 })
 
