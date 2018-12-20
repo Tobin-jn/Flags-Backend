@@ -5,12 +5,6 @@ const bcrypt = require('bcrypt')
 const crypto = require('crypto') 
 
 
-// request object: {
-//        "username": "Alex0@turing.com",
-//        "password": "supersecret7",
-//        "points": 1002
-// }
-
 const signup = (request, response) => {
   // get user from request body
   const user = request.body
