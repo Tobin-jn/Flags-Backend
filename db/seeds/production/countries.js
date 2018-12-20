@@ -1,4 +1,4 @@
-const countries = require('../../../countryData')
+const countries = require('../../../data/countryData')
 
 const createCountries = (knex, country) => {
   return knex('countries').insert({
