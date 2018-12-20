@@ -3,7 +3,7 @@ exports.up = function(knex, Promise) {
   return Promise.all([
     knex.schema.createTable('users', function(table) {
       table.increments('id').primary();
-      table.string('username').unique().notNullable();
+      table.string('username').notNullable();
       table.string('password_digest').notNullable();
       table.string('token').notNullable();
       table.integer('points')
