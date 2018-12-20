@@ -14,7 +14,7 @@ describe('Server file', () => {
     //   .then(() => database.migrate.latest())
     //   .then(() => database.seed.run())
     // );
-  
+
     describe('/api/v1/country', () => {
       
       it('should return return status of 200 on a get request', (done) => {

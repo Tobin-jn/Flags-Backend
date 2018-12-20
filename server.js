@@ -6,12 +6,13 @@ const database = require('knex')(config)
 const app = express()
 const User = require('./user')
 const cors = require('express-cors');
-app.use(cors());
 
+app.use(cors());
 app.use(bodyParser.json())
+app.use(express.static('public'));
+
 app.set('port', process.env.PORT || 3000);
 app.locals.title = 'Flags';
-app.use(express.static('public'));
 
 app.post('/signup', User.signup)
 app.post('/signin', User.signin)
