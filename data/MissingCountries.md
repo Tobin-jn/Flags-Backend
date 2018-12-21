@@ -7,6 +7,7 @@ benin.png
 botswana.png
 bugaria.png
 bulgaria.png
+burkinafaso.png
 cambodia.png
 cameroon.png
 cape verde.png
@@ -31,7 +32,6 @@ gabon.png
 gambia.png
 germany.png
 ghana.png
-guadeloupe.png
 guatemala.png
 guinea-bissau.png
 guinea.png
@@ -100,9 +100,12 @@ venezuela.png
 yemen.png
 zambia.png
 zimbabwe.png
+south-sudan.png
 
 
 
 
 Issues:
-No flag for Grenada, 
+No flag for Grenada,
+No flag for Burkina Faso
+No flag for south-sudan
