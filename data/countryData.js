@@ -397,11 +397,6 @@ const countries = [ { name: 'Mexico',
     outline: './images/outlines/liechtenstein.png',
     questions: 
      [ 'It\'s about the same size as Washington, D.C.; it\'s a principality; it\'s next to Switzerland' ] },
-  
-
-// Break Point
-
-
   { name: 'Sudan',
     flag: './images/flags/sudan.png',
     outline: './images/outlines/sudan.png',
@@ -412,15 +407,12 @@ const countries = [ { name: 'Mexico',
     outline: './images/outlines/brunei.png',
     questions: 
      [ 'Its official language is Malay; Bandar Seri Begawan is its capital; its head of state is a sultan' ] },
-  
-
   { name: 'Peru',
     flag: './images/flags/peru.png',
     outline: './images/outlines/peru.png',
     questions: 
      [ 'Some locals eat a fruit called tuna; it\'s the home base of the Lima Times; llamas live there',
        'There are about 30 million people in this "Land of the Incas"' ] },
-  
   { name: 'Ivory Coast',
     flag: './images/flags/ivory-coast.png',
     outline: './images/outlines/ivory-coast.png',
