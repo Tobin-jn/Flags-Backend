@@ -92,11 +92,6 @@ const countries = [ { name: 'Mexico',
        'It\'s the only Scandinavian nation that borders only one other country (Germany)',
        'Lots of Lutherans live there; its parliament is the Folketing; its royal library is in Copenhagen',
        'Jyllands-Posten,Dagbladet' ] },
-  { name: 'Borneo',
-    flag: './images/flags/borneo.png',
-    outline: './images/outlines/borneo.png',
-    questions: 
-     [ '(Kelly of the Clue Crew points to a map of Southeast Asia on the monitor.) Malaysia consists of two regions--West Malaysia, on the Malay Peninsula, & East Malaysia, which occupies the northern part of this large island' ] },
   { name: 'Switzerland',
     flag: './images/flags/switzerland.png',
     outline: './images/outlines/switzerland.png',
@@ -341,8 +336,8 @@ const countries = [ { name: 'Mexico',
     questions: 
      [ 'Stanley Kowalski might yell out for a Stella Artois beer from this country' ] },
   { name: 'South Korea',
-    flag: './images/flags/south korea.png',
-    outline: './images/outlines/south korea.png',
+    flag: './images/flags/south-korea.png',
+    outline: './images/outlines/south-korea.png',
     questions: 
      [ 'Daegu Polytechnic College & the Catholic University of Pusan are 2 colleges in this country' ] },
   { name: 'Cuba',
@@ -366,10 +361,7 @@ const countries = [ { name: 'Mexico',
     outline: './images/outlines/georgia.png',
     questions: 
      [ 'This former Soviet republic is less than half the size of the U.S. state of the same name' ] },
-  
-// Break Point
-
-  { name: 'Guyana',
+    { name: 'Guyana',
     flag: './images/flags/guyana.png',
     outline: './images/outlines/guyana.png',
     questions: 
@@ -405,6 +397,11 @@ const countries = [ { name: 'Mexico',
     outline: './images/outlines/liechtenstein.png',
     questions: 
      [ 'It\'s about the same size as Washington, D.C.; it\'s a principality; it\'s next to Switzerland' ] },
+  
+
+// Break Point
+
+
   { name: 'Sudan',
     flag: './images/flags/sudan.png',
     outline: './images/outlines/sudan.png',
@@ -415,15 +412,18 @@ const countries = [ { name: 'Mexico',
     outline: './images/outlines/brunei.png',
     questions: 
      [ 'Its official language is Malay; Bandar Seri Begawan is its capital; its head of state is a sultan' ] },
+  
+
   { name: 'Peru',
     flag: './images/flags/peru.png',
     outline: './images/outlines/peru.png',
     questions: 
      [ 'Some locals eat a fruit called tuna; it\'s the home base of the Lima Times; llamas live there',
        'There are about 30 million people in this "Land of the Incas"' ] },
+  
   { name: 'Ivory Coast',
-    flag: './images/flags/ivory coast.png',
-    outline: './images/outlines/ivory coast.png',
+    flag: './images/flags/ivory-coast.png',
+    outline: './images/outlines/ivory-coast.png',
     questions: 
      [ 'It\'s a republic; it\'s in Africa; it has a tusk material in its name' ] },
   { name: 'Argentina',
@@ -489,6 +489,7 @@ const countries = [ { name: 'Mexico',
     outline: './images/outlines/tonga.png',
     questions: 
      [ 'This South Pacific island nation is ruled by a king & a 30-member legislative assembly' ] },
+  
   { name: 'Afghanistan',
     flag: './images/flags/afghanistan.png',
     outline: './images/outlines/afghanistan.png',
@@ -537,9 +538,19 @@ const countries = [ { name: 'Mexico',
     flag: './images/flags/bhutan.png',
     outline: './images/outlines/bhutan.png',
     questions: [ 'Average elevation about 8,000 feet: ends with N' ] },
-  { name: 'Bosnia',
-    flag: './images/flags/bosnia.png',
-    outline: './images/outlines/bosnia.png',
-    questions: [ 'Bordering Croatia: ends with A' ] } ]
+  { name: 'Bosnia and Herzegovina',
+    flag: './images/flags/bosnia-and-herzegovina.png',
+    outline: './images/outlines/bosnia-and-herzegovina.png',
+    questions: [ 'Bordering Croatia: ends with A' ] },
+  { name: 'Kazakhstan',
+    flag: './images/flags/kazakhstan.png',
+    outline: './images/outlines/kazakhstan.png',
+    questions: [ 'The largest landlocked country' ] } ]
+
+
+  // { name: '',
+  //   flag: './images/flags/',
+  //   outline: './images/outlines/',
+  //   questions: [ '' ] }
 
      module.exports = countries

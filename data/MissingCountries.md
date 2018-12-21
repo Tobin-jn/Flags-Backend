@@ -1,32 +1,19 @@
-afghanistan.png
-albania.png
-algeria.png
 andorra.png
 antigua-and-barbuda.png
-argentina.png
 azerbaijan.png
-bahrain.png
 bangladesh.png
 belarus.png
 benin.png
-bhutan.png
-bolivia.png
-bosnia-and-herzegovina.png
 botswana.png
-brazil.png
-brunei-darussalam.png
 bugaria.png
 bulgaria.png
 cambodia.png
 cameroon.png
-canada.png
 cape verde.png
 central-afriocan-republic.png
 chad.png
-china.png
 comoros.png
 costa-rica.png
-cote-divoire.png
 croatia.png
 cyprus.png
 czech-republic.png
@@ -34,28 +21,23 @@ democratic-republic-congo.png
 djibouti.png
 dominica.png
 dominican-republic.png
-egypt.png
 eh.png
 el-salvador.png
 equitorial-guinea.png
 eritrea.png
-estonia.png
 fiji.png
 finland.png
 gabon.png
 gambia.png
 germany.png
 ghana.png
-greece.png
 guadeloupe.png
 guatemala.png
 guinea-bissau.png
 guinea.png
-guyana.png
 iran.png
 iraq.png
 japan.png
-kazakhstan.png
 kiribati.png
 kosovo.png
 kuwait.png
@@ -65,11 +47,9 @@ latvia.png
 lesotho.png
 liberia.png
 libya.png
-liechtenstein.png
 lithuania.png
 luxembourg.png
 macedonia.png
-madagascar.png
 malawi.png
 maldives.png
 mali.png
@@ -78,14 +58,12 @@ marshall-islands.png
 mauritius.png
 micronesia.png
 moldova.png
-mongolia.png
 montenegro.png
 mozambique.png
 myanmar.png
 namibia.png
 nauru.png
 nepal.png
-new-zealand.png
 nicaragua.png
 niger.png
 nigeria.png
@@ -94,38 +72,25 @@ pakistan.png
 palau.png
 papua-new-guinea.png
 peoples-republic-congo.png
-peru.png
-poland.png
 qatar.png
 saint lucia.png
 saint-kettis-and-nevis.png
-samoa.png
 san-marino.png
 sao-tome-and-principe.png
 senegal.png
 serbia.png
 seychelles.png
 sierra-leone.png
-singapore.png
 slovenia.png
 solomon-islands.png
-somalia.png
-sudan.png
 suriname.png
 swaziland.png
 syria.png
-taiwan.png
 tajikistan.png
-tanzania.png
 timor-lests.png
 togo.png
-tonga.png
 trinidad-and-tobago.png
-tunisia.png
-turkey.png
-turkmenistan.png
 tuvalu.png
-ukraine.png
 united-arab-emirates.png
 usa.png
 uzbekistan.png
@@ -140,6 +105,4 @@ zimbabwe.png
 
 
 Issues:
-country in data: Grenada, Borneo
-
-check south korea question
+No flag for Grenada, 
