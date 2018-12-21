@@ -5,7 +5,7 @@ const config = require('./knexfile')[environment]
 const database = require('knex')(config)
 const app = express()
 const User = require('./user')
-const cors = require('express-cors');
+const cors = require('cors');
 
 app.use(cors());
 app.use(bodyParser.json())

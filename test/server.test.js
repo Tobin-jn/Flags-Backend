@@ -53,7 +53,7 @@ describe('Server file', () => {
       
       it('should return return status of 200 on a get request', (done) => {
         chai.request(app)
-          .get('/api/v1/country/1')
+          .get('/api/v1/country/2')
           .end((error, response) => {
             expect(response).to.have.status(200)
             done()
@@ -128,3 +128,8 @@ describe('Server file', () => {
     })
 
   })
+
+
+
+
+  require('events').EventEmitter.prototype._maxListeners = 100;
