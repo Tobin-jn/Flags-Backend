@@ -87,7 +87,7 @@ suriname.png
 swaziland.png
 syria.png
 tajikistan.png
-timor-lests.png
+east-timor.png
 togo.png
 trinidad-and-tobago.png
 tuvalu.png
