@@ -11,6 +11,7 @@ app.use(cors());
 app.use(bodyParser.json())
 app.use(express.static('public'));
 
+
 app.set('port', process.env.PORT || 3000);
 app.locals.title = 'Flags';
 
