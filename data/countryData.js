@@ -800,6 +800,10 @@ const countries = [ { name: 'Mexico',
       outline: './images/outlines/luxembourg.png',
       questions: [ 'This country is the only Grand Duchy in the world. Which means they have a Grand-Duke and Grand-Duchess, instead of a King and Queen.',
       'This country has the highest minimum wage in the EU' ] },
+      { name: 'United States',
+      flag: './images/flags/united-states.png',
+      outline: './images/outlines/united-states.png',
+      questions: [ 'This country declared independence in 1776.' ] }
  ]
 
   // { name: '',
