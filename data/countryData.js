@@ -538,12 +538,13 @@ const countries = [ { name: 'Mexico',
     flag: './images/flags/kazakhstan.png',
     outline: './images/outlines/kazakhstan.png',
     questions: [ 'The largest landlocked country' ] },
-  { name: 'United States',
-    flag: './images/flags/united-states.png',
-    outline: './images/outlines/united-states.png',
-    questions: [ 'This country declared independence in 1776.' ] } ]
+  { name: 'South Sudan',
+    flag: './images/flags/'},
+ ]
 
 
+
+    // luxembourg.png macedonia.png malawi.png maldives.png mali.png malta.png marshall-islands.png mauritius.png micronesia.png moldova.png montenegro.png mozambique.png myanmar.png namibia.png nauru.png nepal.png nicaragua.png niger.png nigeria.png oman.png pakistan.png palau.png papua-new-guinea.png peoples-republic-congo.png qatar.png saint lucia.png saint-kettis-and-nevis.png san-marino.png sao-tome-and-principe.png senegal.png serbia.png seychelles.png sierra-leone.png slovenia.png solomon-islands.png suriname.png swaziland.png syria.png tajikistan.png east-timor.png togo.png trinidad-and-tobago.png tuvalu.png united-arab-emirates.png usa.png uzbekistan.png vanuatu.png vatican-city.png venezuela.png yemen.png zambia.png zimbabwe.png south-sudan.png
   // { name: '',
   //   flag: './images/flags/',
   //   outline: './images/outlines/',
