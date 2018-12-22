@@ -1,0 +1,47 @@
+body {
+  box-sizing: border-box;
+}
+
+header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+}
+
+h1 {
+  text-align: center;
+  font-size: 3em;
+}
+
+.flags-of-world {
+  width: 600px;
+}
+
+.description {
+  padding: 50px 100px;
+  font-size: 1.25em;
+  margin: 0;
+}
+
+h4 {
+  font-size: 2em;
+  text-align: center;
+  margin: 0 0 50px 0;
+}
+
+.flag {
+  height: 150px;
+  margin-right: 25px;
+}
+
+.america {
+  margin-left: 25px;
+}
+
+.example-response {
+  margin: 50px 0 0 0;
+}
+
+
