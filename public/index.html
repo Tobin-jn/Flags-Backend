@@ -7,9 +7,26 @@
   <body>
     <header>
       <h1>Welcome to the Flags API</h1>
-      <img src="images/flags-of-world.png" alt="Flags of the World">
+      <img class='flags-of-world' src="images/flags-of-world.png" alt="Flags of the World">
       <p class="description">
+        The flags API provides information about all the countries in the world. This database can provide each country flag as a 1600px wide png image. In addition it can provide the country outline. Finally the api provides some trivia style questions for each country.
       </p>
+      <h4>Example Images</h4>
+        <div class="image-examples">
+          <img class='flag america' src="images/flags/united-states.png" alt="American Flag">
+          <img class='outline america' src="images/outlines/united-states.png" alt="American Country Outline">
+        </div>
+      <h4 class='example-response'>Example Response Object</h4>
+      <pre>  
+        { 
+          name: 'United States',
+          flag: './images/flags/united-states.png',
+          outline: './images/outlines/united-states.png',
+          questions: [ 'This country declared independence in 1776.' ] 
+        } 
+      </pre>
+
+
     </header>
      
     <section class="endpoint-documentation">
