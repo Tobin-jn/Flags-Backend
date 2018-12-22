@@ -537,7 +537,11 @@ const countries = [ { name: 'Mexico',
   { name: 'Kazakhstan',
     flag: './images/flags/kazakhstan.png',
     outline: './images/outlines/kazakhstan.png',
-    questions: [ 'The largest landlocked country' ] } ]
+    questions: [ 'The largest landlocked country' ] },
+  { name: 'United States',
+    flag: './images/flags/united-states.png',
+    outline: './images/outlines/united-states.png',
+    questions: [ 'This country declared independence in 1776.' ] } ]
 
 
   // { name: '',
