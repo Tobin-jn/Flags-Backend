@@ -92,7 +92,6 @@ togo.png
 trinidad-and-tobago.png
 tuvalu.png
 united-arab-emirates.png
-usa.png
 uzbekistan.png
 vanuatu.png
 vatican-city.png
