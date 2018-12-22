@@ -48,7 +48,7 @@ app.get('/api/v1/facts', (request, response) => {
 app.get('/api/v1/facts/:country_id', (request, response) => {
     const { country_id } = request.params
     
-    database('facts').where('id', country_id).select()
+    database('facts').where('country_id', country_id).select()
         .then(fact => response.status(200).json(fact))
         .catch(error => response.status(500).json(`Error fetching fact: ${error.message}`))
   })
