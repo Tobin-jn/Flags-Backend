@@ -11,6 +11,10 @@ app.use(cors());
 app.use(bodyParser.json())
 app.use(express.static('public'));
 
+app.use(function (request, response, next) {
+  response.status(404).sendFile(__dirname + '/public/404.html')
+})
+
 
 app.set('port', process.env.PORT || 3000);
 app.locals.title = 'Flags';
