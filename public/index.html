@@ -37,12 +37,54 @@
       <p class="endpoint-description">Endpoint will return all the trivia facts for all countries.</p>
       <h3 class='endpoint'>/api/v1/facts/:country_id</h3>
       <p class="endpoint-description">Endpoint will return the trivia facts for a single country.</p>
+      <pre>
+        [
+            {
+                "id": 189,
+                "country_fact": "It's been said that this country \"has but one hero, William Tell, and he is a myth\"",
+                "country_id": 100,
+                "created_at": "2018-12-22T16:48:48.971Z",
+                "updated_at": "2018-12-22T16:48:48.971Z"
+            },
+            {
+                "id": 190,
+                "country_fact": "In 2002 this country shifted out of neutral & finally joined the U.N.",
+                "country_id": 100,
+                "created_at": "2018-12-22T16:48:48.971Z",
+                "updated_at": "2018-12-22T16:48:48.971Z"
+            },
+        ]
+      </pre>
       <h3 class='endpoint'>/signup</h3>
       <p class="endpoint-description">Endpoint will request a new user to sign up.</p>
       <h5>Response upon successful Sign Up of new user:</h5>
+      <pre>
+        {
+          "user": [
+            {
+              "id": 1,
+              "username": "Name@example.com",
+              "created_at": "2018-12-22T18:56:27.634Z",
+              "token": "EXAMPLE---+opOQ****Vvvg=="
+            }
+          ]
+        }
+      </pre>
       <h3 class='endpoint'>/signin</h3>
       <p class="endpoint-description">Endpoint will request a new user to sign in.</p>
       <h5>Response upon successful Sign In of returning user:</h5>
+      <pre>
+        [
+            {
+                "id": 1,
+                "username": "Name@example.com",
+                "token": "RAhEI9X+opOQ+WuWllVvvg==",
+                "points": null,
+                "created_at": "2018-12-22T18:56:27.634Z",
+                "updated_at": "2018-12-22T18:56:27.634Z"
+            }
+        ]
+      </pre>
     </section> 
 
 
