@@ -16,17 +16,6 @@
           <img class='flag america' src="images/flags/united-states.png" alt="American Flag">
           <img class='outline america' src="images/outlines/united-states.png" alt="American Country Outline">
         </div>
-      <h4 class='example-response'>Example Response Object</h4>
-      <pre>  
-        { 
-          name: 'United States',
-          flag: './images/flags/united-states.png',
-          outline: './images/outlines/united-states.png',
-          questions: [ 'This country declared independence in 1776.' ] 
-        } 
-      </pre>
-
-
     </header>
      
     <section class="endpoint-documentation">
@@ -34,6 +23,16 @@
       <p class="endpoint-description">Endpoint will return all countries.</p>
       <h3 class='endpoint'>/api/v1/country/:id</h3>
       <p class="endpoint-description">Endpoint will return a specific country based on id.</p>
+      <pre>
+        {
+          "id": 100,
+          "name": "Switzerland",
+          "flag": "./images/flags/switzerland.png",
+          "country_outline": "./images/outlines/switzerland.png",
+          "created_at": "2018-12-22T16:48:48.903Z",
+          "updated_at": "2018-12-22T16:48:48.903Z"
+        }
+      </pre>
       <h3 class='endpoint'>/api/v1/facts</h3>
       <p class="endpoint-description">Endpoint will return all the trivia facts for all countries.</p>
       <h3 class='endpoint'>/api/v1/facts/:country_id</h3>
