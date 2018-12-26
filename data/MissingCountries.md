@@ -23,8 +23,7 @@ djibouti.png
 dominica.png
 dominican-republic.png
 el-salvador.png
-equitorial-guinea.png
-eritrea.png
+
 
 
 
