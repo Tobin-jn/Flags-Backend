@@ -46,12 +46,9 @@ POST /api/v1/signin // Sign in with a user name and password
 
 ```
 #### Sign-Up
-````
+```
 POST /api/v1/signup
 --> returns a user object with the key of user and the value being the id, token, and username
-
-GET /api/v1/facts/:country_id  // get a specific question for a specific country
---> returns an array with a specific question object
 
 ```
 # To Contribute to the Project:
