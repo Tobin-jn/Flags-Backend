@@ -40,5 +40,27 @@ h4 {
   margin-left: 25px;
 }
 
+.endpoint {
+  font-size: 1.4 em;
+  background-color: lightGray;
+  padding: 10px 10px 10px 30px;
+  width: 200px;
+  text-align: center;
+  margin-left: 100px;
+  margin-top: 50px;
+}
 
+.endpoint-description {
+  margin-left: 100px;
+  font-size: 1.25em;
+
+}
+
+pre {
+  margin-left: 100px;
+  background-color: lightGray;
+  padding: 10px 10px 10px 10px;
+  width: 80%;
+
+}
 
