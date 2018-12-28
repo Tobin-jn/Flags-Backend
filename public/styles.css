@@ -43,7 +43,7 @@ h4 {
 .endpoint {
   font-size: 1.4 em;
   background-color: lightGray;
-  padding: 10px 10px 10px 30px;
+  padding: 10px 10px 10px 10px;
   width: 200px;
   text-align: center;
   margin-left: 100px;
@@ -60,7 +60,7 @@ pre {
   margin-left: 100px;
   background-color: lightGray;
   padding: 10px 10px 10px 10px;
-  width: 80%;
+  width: 975px;
 
 }
 
