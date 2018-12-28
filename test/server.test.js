@@ -31,6 +31,7 @@ describe('Server file', () => {
         .get('/bologna')
         .end((err, response) => {
           expect(response).to.have.status(404);
+          expect(response).to.be.html;
           done();
         });
       });

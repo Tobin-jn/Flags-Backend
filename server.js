@@ -11,10 +11,6 @@ app.use(cors());
 app.use(bodyParser.json())
 app.use(express.static('public'));
 
-// app.use(function (request, response, next) {
-//   response.status(404).sendFile(__dirname + '/public/404.html')
-// })
-
 
 app.set('port', process.env.PORT || 3000);
 app.locals.title = 'Flags';
@@ -57,6 +53,10 @@ app.get('/api/v1/facts/:country_id', (request, response) => {
         .then(fact => response.status(200).json(fact))
         .catch(error => response.status(500).json(`Error fetching fact: ${error.message}`))
   })
+
+app.use(function (request, response, next) {
+  response.status(404).sendFile(__dirname + '/public/404.html')
+})
 
 app.listen(app.get('port'), () => {
     console.log(`${app.locals.title} is running on ${app.get('port')}.`);
