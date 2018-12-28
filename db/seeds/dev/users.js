@@ -5,9 +5,10 @@ exports.seed = function(knex, Promise) {
       // Inserts seed entries
       return knex('users').insert([
         {
-          username: 'Alex@turing.com', 
+          username: 'Alex', 
           password_digest: 'secret', 
           token: 'superSecret', 
+          email: 'Alex@turing.com',
           points: 1000
         },
       ]);
