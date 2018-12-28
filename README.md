@@ -39,7 +39,21 @@ GET /api/v1/facts/:country_id  // get a specific question for a specific country
 --> returns an array with a specific question object
 
 ```
+#### Sign-In
+```
+POST /api/v1/signin // Sign in with a user name and password
+--> returns an id, username, token, and points in a user object
 
+```
+#### Sign-Up
+````
+POST /api/v1/signup
+--> returns a user object with the key of user and the value being the id, token, and username
+
+GET /api/v1/facts/:country_id  // get a specific question for a specific country
+--> returns an array with a specific question object
+
+```
 # To Contribute to the Project:
 
 - Follow the setup instructions above to get the app up and running locally on your machine.
