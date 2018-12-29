@@ -9,11 +9,12 @@ const signup = (request, response) => {
   const user = request.body
 
   for (let requiredParameter of [
+    'email',
     'username',
     'password',
     ]) {
     if (user[requiredParameter] === undefined) {
-      response.status(422).send({error: 'Missing required parameter'});
+      response.status(422).send({error: `Missing required parameter`});
       return
     } else {
       encryptPassword(user.password)

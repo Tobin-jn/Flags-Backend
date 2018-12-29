@@ -38,8 +38,9 @@ describe('User Middleware', () => {
 
     it('should return status 201 if a user successfully signs up', done => {
       const userRequest = {
-        username: 'Bob2@Turing.com',
-        password: 'superSecretpassword'
+        username: 'Bob',
+        password: 'superSecretpassword',
+        email: 'Bob2@Turing.com'
       }
 
       chai
@@ -58,8 +59,9 @@ describe('User Middleware', () => {
 
     it('should delete the user password and password_digest from the user response', () => {
       const userRequest = {
-        username: 'Bob2@Turing.com',
-        password: 'superSecretpassword'
+        username: 'Bob',
+        password: 'superSecretpassword',
+        email: 'Bob2@Turing.com'
       }
 
       chai
