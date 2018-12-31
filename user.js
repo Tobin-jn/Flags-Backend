@@ -127,8 +127,5 @@ module.exports = {
   signin,
   checkPassword,
   createToken,
-  createUser,
   encryptPassword,
-  findUser,
-  updateUserToken,
 }
