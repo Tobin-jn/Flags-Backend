@@ -40,7 +40,7 @@ const signin = (request, response) => {
   let user
 
   for (let requiredParameter of [
-    'username',
+    'email',
     'password',
     ]) {
     if (userRequest[requiredParameter] === undefined) {
@@ -113,7 +113,7 @@ const encryptPassword = (password) => {
 
 const findUser = (userRequest) => {
   return database('users')
-    .where('username', userRequest.username)
+    .where('email', userRequest.email)
     .select()
 }
 
