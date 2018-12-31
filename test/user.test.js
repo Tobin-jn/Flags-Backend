@@ -167,22 +167,15 @@ describe('User Middleware', () => {
       expect(result).to.be.a('promise');
     })
   })
-  describe('createUser', () => {
+  describe('encryptPassword', () => {
     it('should return a promise', () => {
-      const mockUser = {
-        id: 1,
-        username: "Alex",
-        password: "password",
-        email: "Alex@turing.com",
-        password_digest: 'aaaaa',
-        token: 'bbbbb',
-      }
-
-      let result = user.createUser(mockUser)
-
+      const mockPassword = 'Password'
+      let result = user.encryptPassword(mockPassword)
+      
       expect(result).to.be.a('promise');
     })
   })
+
   // describe('checkPassword', () => {
   //   it('should return a promise', () => {
   //     const mockPassword = 'password'
