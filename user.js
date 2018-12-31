@@ -83,7 +83,6 @@ const checkPassword = (requestPassword, foundUser) => {
 
 const createToken = () => {
   return new Promise((resolve, reject) => {
-    //creates random characters/data
     crypto.randomBytes(16, (error, data) => {
       if (error){
         reject(error)
@@ -102,7 +101,6 @@ const createUser = (user) => {
 
 const encryptPassword = (password) => {
   return new Promise((resolve, reject) => {
-    // bcrypt.hash(data, salt, callback)
     bcrypt.hash(password, 12, (error, hash) => {
       if (error){
         reject(error)
@@ -130,4 +128,7 @@ const updateUserToken = (token, user) => {
 module.exports = {
   signup,
   signin,
+  checkPassword,
+  createToken,
+  encryptPassword,
 }
