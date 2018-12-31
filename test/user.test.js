@@ -93,7 +93,6 @@ describe('User Middleware', () => {
         .post('/signin')
         .send(userRequest)
         .end((request, response) => {
-          // console.log(response)
           response.should.have.status(422)
           response.body.should.have.property('error')
           response.body.error.should.equal('Missing required parameter')
@@ -122,8 +121,8 @@ describe('User Middleware', () => {
 
     it('should delete the user password_digest from the user response', () => {
       const userRequest = {
-        email: 'Bob2@Turing.com',
-        password: 'superSecretpassword'
+        email: 'Alex@turing.com',
+        password: 'secret'
       }
 
       chai
