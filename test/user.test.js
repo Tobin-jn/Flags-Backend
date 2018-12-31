@@ -160,7 +160,6 @@ describe('User Middleware', () => {
       expect(result).to.be.a('promise');
     })
   })
-
   describe('createToken', () => {
     it('should return a promise', () => {
       let result = user.createToken()
@@ -168,83 +167,79 @@ describe('User Middleware', () => {
       expect(result).to.be.a('promise');
     })
   })
-
-  describe('checkPassword', () => {
+  describe('createUser', () => {
     it('should return a promise', () => {
-      const mockPassword = 'password'
-      const mockUser = [{
+      const mockUser = {
         id: 1,
         username: "Alex",
         password: "password",
         email: "Alex@turing.com",
         password_digest: 'aaaaa',
         token: 'bbbbb',
-      }]
+      }
 
-      console.log(user)
-
-      let result = user.checkPassword(mockPassword, mockUser)
+      let result = user.createUser(mockUser)
 
       expect(result).to.be.a('promise');
     })
   })
-  describe('checkPassword', () => {
-    it('should return a promise', () => {
-      const mockPassword = 'password'
-      const mockUser = [{
-        id: 1,
-        username: "Alex",
-        password: "password",
-        email: "Alex@turing.com",
-        password_digest: 'aaaaa',
-        token: 'bbbbb',
-      }]
+  // describe('checkPassword', () => {
+  //   it('should return a promise', () => {
+  //     const mockPassword = 'password'
+  //     const mockUser = [{
+  //       id: 1,
+  //       username: "Alex",
+  //       password: "password",
+  //       email: "Alex@turing.com",
+  //       password_digest: 'aaaaa',
+  //       token: 'bbbbb',
+  //     }]
 
-      console.log(user)
+  //     console.log(user)
 
-      let result = user.checkPassword(mockPassword, mockUser)
+  //     let result = user.checkPassword(mockPassword, mockUser)
 
-      expect(result).to.be.a('promise');
-    })
-  })
-  describe('checkPassword', () => {
-    it('should return a promise', () => {
-      const mockPassword = 'password'
-      const mockUser = [{
-        id: 1,
-        username: "Alex",
-        password: "password",
-        email: "Alex@turing.com",
-        password_digest: 'aaaaa',
-        token: 'bbbbb',
-      }]
+  //     expect(result).to.be.a('promise');
+  //   })
+  // })
+  // describe('checkPassword', () => {
+  //   it('should return a promise', () => {
+  //     const mockPassword = 'password'
+  //     const mockUser = [{
+  //       id: 1,
+  //       username: "Alex",
+  //       password: "password",
+  //       email: "Alex@turing.com",
+  //       password_digest: 'aaaaa',
+  //       token: 'bbbbb',
+  //     }]
 
-      console.log(user)
+  //     console.log(user)
 
-      let result = user.checkPassword(mockPassword, mockUser)
+  //     let result = user.checkPassword(mockPassword, mockUser)
 
-      expect(result).to.be.a('promise');
-    })
-  })
-  describe('checkPassword', () => {
-    it('should return a promise', () => {
-      const mockPassword = 'password'
-      const mockUser = [{
-        id: 1,
-        username: "Alex",
-        password: "password",
-        email: "Alex@turing.com",
-        password_digest: 'aaaaa',
-        token: 'bbbbb',
-      }]
+  //     expect(result).to.be.a('promise');
+  //   })
+  // })
+  // describe('checkPassword', () => {
+  //   it('should return a promise', () => {
+  //     const mockPassword = 'password'
+  //     const mockUser = [{
+  //       id: 1,
+  //       username: "Alex",
+  //       password: "password",
+  //       email: "Alex@turing.com",
+  //       password_digest: 'aaaaa',
+  //       token: 'bbbbb',
+  //     }]
 
-      console.log(user)
+  //     console.log(user)
 
-      let result = user.checkPassword(mockPassword, mockUser)
+  //     let result = user.checkPassword(mockPassword, mockUser)
 
-      expect(result).to.be.a('promise');
-    })
-  })
+  //     expect(result).to.be.a('promise');
+  //   })
+  // })
 
 
 
