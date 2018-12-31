@@ -121,8 +121,8 @@ describe('User Middleware', () => {
 
     it('should delete the user password_digest from the user response', () => {
       const userRequest = {
-        email: 'Alex@turing.com',
-        password: 'secret'
+        email: 'Bob2@Turing.com',
+        password: 'superSecretpassword'
       }
 
       chai

@@ -52,7 +52,6 @@ const signin = (request, response) => {
     findUser(userRequest)
       .then(foundUser => {
         user = foundUser
-
         return checkPassword(userRequest.password, foundUser)
       })
       .then((res) => createToken())
