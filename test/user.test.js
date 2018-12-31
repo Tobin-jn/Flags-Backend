@@ -102,7 +102,7 @@ describe('User Middleware', () => {
 
     it('should return status 201 if a user successfully signs up', () => {
       const userRequest = {
-        username: 'Alex@turing.com',
+        email: 'Alex@turing.com',
         password: 'secret'
       }
 
@@ -113,7 +113,7 @@ describe('User Middleware', () => {
         .end((request, response) => {
           response.should.have.status(201)
           response.body.user[0].should.have.property('id')
-          response.body.user[0].should.have.property('username')
+          response.body.user[0].should.have.property('email')
           response.body.user[0].should.have.property('token')
           response.body.user[0].id.should.equal(2)
           done()
@@ -122,7 +122,7 @@ describe('User Middleware', () => {
 
     it('should delete the user password_digest from the user response', () => {
       const userRequest = {
-        username: 'Bob2@Turing.com',
+        email: 'Bob2@Turing.com',
         password: 'superSecretpassword'
       }
 
@@ -133,7 +133,7 @@ describe('User Middleware', () => {
         .end((request, response) => {
           response.should.have.status(201)
           response.body.user[0].should.have.property('id')
-          response.body.user[0].should.have.property('username')
+          response.body.user[0].should.have.property('email')
           response.body.user[0].should.have.property('token')
           response.body.user[0].should.not.have.property('password')
           response.body.user[0].should.not.have.property('password_digest')
