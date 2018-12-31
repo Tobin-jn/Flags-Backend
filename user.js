@@ -31,7 +31,9 @@ const signup = (request, response) => {
         response.status(201).json({ user })
         return
       })
-      .catch((error) => console.error(error)) 
+      .catch(error => {
+        response.status(500).json({error: error.message});
+      });
 }
 
 const signin = (request, response) => {
@@ -59,7 +61,9 @@ const signin = (request, response) => {
         delete user[0].password_digest
         response.status(201).json(user)
       })
-      .catch((error) => console.error(error))
+      .catch(error => {
+        response.status(500).json({error: error.message});
+      });
 }
 
 const checkPassword = (requestPassword, foundUser) => {
