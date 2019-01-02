@@ -14,7 +14,7 @@ const signup = (request, response) => {
     'password',
     ]) {
       if (user[requiredParameter] === undefined) {
-        response.status(422).send({error: `Missing required parameter`});
+        response.status(422).send({error: 'Missing required parameter'});
         return
       } 
     }
@@ -64,7 +64,7 @@ const signin = (request, response) => {
       .select()
       .then(foundUser => {
         if(foundUser.length === 0){
-          response.status(422).send({ error: 'Email does not Exist' });
+          response.status(422).send({ error: 'User Does Not Exist' });
         } else {
           user = foundUser
           checkPassword(userRequest.password, foundUser)
