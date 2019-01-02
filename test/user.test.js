@@ -134,7 +134,6 @@ describe('User Middleware', () => {
         .post('/signin')
         .send(userRequest)
         .end((request, response) => {
-          response.should.have.status(201)
           response.body.user[0].should.have.property('id')
           response.body.user[0].should.have.property('email')
           response.body.user[0].should.have.property('token')
