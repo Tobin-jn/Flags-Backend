@@ -13,26 +13,36 @@ const signup = (request, response) => {
     'username',
     'password',
     ]) {
-    if (user[requiredParameter] === undefined) {
-      response.status(422).send({error: `Missing required parameter`});
-      return
-    } else {
-      encryptPassword(user.password)
-        .then( encryptedPassword => {
-          delete user.password
-          user.password_digest = encryptedPassword
-        })
-        .then(() => createToken())
-        .then(token => user.token = token)
-        .then(() => createUser(user))
-        .then(user => {
-          delete user.password_digest
-          response.status(201).json({ user })
-          return
-        })
-        .catch((error) => console.error(error)) 
+      if (user[requiredParameter] === undefined) {
+        response.status(422).send({error: 'Missing required parameter'});
+        return
+      } 
     }
-  }
+
+    database('users')
+      .where('email', user.email)
+      .select()
+      .then(foundEmail => {
+        if(foundEmail.length === 0){
+          encryptPassword(user.password)
+            .then( encryptedPassword => {
+              delete user.password
+              user.password_digest = encryptedPassword
+            })
+            .then(() => createToken())
+            .then(token => user.token = token)
+            .then(() => createUser(user))
+            .then(user => {
+              delete user.password_digest
+              response.status(201).json({ user })
+            })
+        } else {
+          response.status(422).send({ error: 'Email Already Exists' });
+        }
+      })
+      .catch(error => {
+        response.status(500).json({ error: error.message })
+      });
 }
 
 const signin = (request, response) => {
@@ -43,26 +53,34 @@ const signin = (request, response) => {
     'email',
     'password',
     ]) {
-    if (userRequest[requiredParameter] === undefined) {
-      response.status(422).send({error: 'Missing required parameter'});
-      return
-    } else {
-      findUser(userRequest)
-        .then(foundUser => {
-          user = foundUser
-
-          return checkPassword(userRequest.password, foundUser)
-        })
-        .then((res) => createToken())
-        .then(token => updateUserToken(token, user))
-        .then(() => {
-          delete user[0].password_digest
-          response.status(201).json(user)
-        })
-        .catch((error) => console.error(error))
+      if (userRequest[requiredParameter] === undefined) {
+        response.status(422).send({error: 'Missing required parameter'});
+        return
+      }
     }
-  }
+
+    database('users')
+      .where('email', userRequest.email)
+      .select()
+      .then(foundUser => {
+        if(foundUser.length === 0){
+          response.status(422).send({ error: 'User Does Not Exist' });
+        } else {
+          user = foundUser
+          checkPassword(userRequest.password, foundUser)
+            .then((res) => createToken())
+            .then(token => updateUserToken(token, user))
+            .then(() => {
+              delete user[0].password_digest
+              response.status(201).json(user)
+            })
+        }
+      })
+      .catch(error => {
+        response.status(500).json({ error: error.message })
+      });
 }
+
 
 const checkPassword = (requestPassword, foundUser) => {
   return new Promise((resolve, reject) =>
@@ -81,7 +99,6 @@ const checkPassword = (requestPassword, foundUser) => {
 
 const createToken = () => {
   return new Promise((resolve, reject) => {
-    //creates random characters/data
     crypto.randomBytes(16, (error, data) => {
       if (error){
         reject(error)
@@ -100,7 +117,6 @@ const createUser = (user) => {
 
 const encryptPassword = (password) => {
   return new Promise((resolve, reject) => {
-    // bcrypt.hash(data, salt, callback)
     bcrypt.hash(password, 12, (error, hash) => {
       if (error){
         reject(error)
@@ -109,12 +125,6 @@ const encryptPassword = (password) => {
       }    
     })
   })
-}
-
-const findUser = (userRequest) => {
-  return database('users')
-    .where('email', userRequest.email)
-    .select()
 }
 
 const updateUserToken = (token, user) => {
