@@ -127,12 +127,6 @@ const encryptPassword = (password) => {
   })
 }
 
-// const findUser = (userRequest) => {
-//   return database('users')
-//     .where('email', userRequest.email)
-//     .select()
-// }
-
 const updateUserToken = (token, user) => {
   console.log(user)
   return database('users')
