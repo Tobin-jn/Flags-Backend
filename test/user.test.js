@@ -12,13 +12,6 @@ const database = require('knex')(config);
 chai.use(chaiHttp)
 
 describe('User Middleware', () => {
-
-  // beforeEach(() =>
-  //   database.migrate
-  //     .rollback()
-  //     .then(() => database.migrate.latest())
-  //     .then(() => database.seed.run()));
-
   describe('signup', () => {
     it('should return 422 if request is missing username or password', () => {
       const userRequest = {
@@ -33,7 +26,7 @@ describe('User Middleware', () => {
           response.should.have.status(422)
           response.body.should.have.property('error')
           response.body.error.should.equal('Missing required parameter')
-        })
+      })
     })
 
     it('should return 422 if the email already exists', () => {
@@ -51,28 +44,8 @@ describe('User Middleware', () => {
           response.should.have.status(422)
           response.body.should.have.property('error')
           response.body.error.should.equal('Email Already Exists')
-        })
+      })
     })
-
-    // it('should return status 201 if a user successfully signs up', done => {
-    //   const userRequest = {
-    //     username: 'Bob',
-    //     password: 'superSecretpassword',
-    //     email: 'Bob5@Turing.com'
-    //   }
-
-    //   chai
-    //     .request(app)
-    //     .post('/signup')
-    //     .send(userRequest)
-    //     .end((request, response) => {
-    //       response.should.have.status(201)
-    //       response.body.user[0].should.have.property('id')
-    //       response.body.user[0].should.have.property('username')
-    //       response.body.user[0].should.have.property('token')
-    //       done()
-    //     })
-    // })
 
     it('should delete the user password and password_digest from the user response', () => {
       const userRequest = {
@@ -92,8 +65,26 @@ describe('User Middleware', () => {
           response.body.user[0].should.have.property('token')
           response.body.user[0].should.not.have.property('password')
           response.body.user[0].should.not.have.property('password_digest')
-          done()
-        })
+      })
+    })
+
+    it('should return status 201 if a user successfully signs up', () => {
+      const userRequest = {
+        username: 'Bob',
+        password: 'superSecretpassword',
+        email: 'Bob5@Turing.com'
+      }
+
+      chai
+        .request(app)
+        .post('/signup')
+        .send(userRequest)
+        .end((request, response) => {
+          response.should.have.status(201)
+          response.body.user[0].should.have.property('id')
+          response.body.user[0].should.have.property('username')
+          response.body.user[0].should.have.property('token')
+      })
     })
   })
 
@@ -150,8 +141,7 @@ describe('User Middleware', () => {
           response.body.user[0].should.not.have.property('password')
           response.body.user[0].should.not.have.property('password_digest')
           response.body.user[0].id.should.equal(2)
-          done()
-        })
+      })
     })
 
     it('should return status 201 if a user successfully signs in', () => {
@@ -170,8 +160,7 @@ describe('User Middleware', () => {
           response.body.user[0].should.have.property('email')
           response.body.user[0].should.have.property('token')
           response.body.user[0].id.should.equal(2)
-          done()
-        })
+      })
     })
   })
 })
