@@ -18,19 +18,31 @@ const signup = (request, response) => {
         return
       } 
     }
-    encryptPassword(user.password)
-      .then( encryptedPassword => {
-        delete user.password
-        user.password_digest = encryptedPassword
+
+    database('users')
+      .where('email', user.email)
+      .select()
+      .then(foundEmail => {
+        if(foundEmail.length === 0){
+          encryptPassword(user.password)
+            .then( encryptedPassword => {
+              delete user.password
+              user.password_digest = encryptedPassword
+            })
+            .then(() => createToken())
+            .then(token => user.token = token)
+            .then(() => createUser(user))
+            .then(user => {
+              delete user.password_digest
+              response.status(201).json({ user })
+            })
+        } else {
+          response.status(422).send({ error: 'Email Already Exists' });
+        }
       })
-      .then(() => createToken())
-      .then(token => user.token = token)
-      .then(() => createUser(user))
-      .then(user => {
-        delete user.password_digest
-        response.status(201).json({ user })
-      })
-      .catch((error) => console.error(error)) 
+      .catch(error => {
+        response.status(500).json({ error: error.message })
+      });
 }
 
 const signin = (request, response) => {
@@ -46,18 +58,27 @@ const signin = (request, response) => {
         return
       }
     }
-    findUser(userRequest)
+
+    database('users')
+      .where('email', userRequest.email)
+      .select()
       .then(foundUser => {
-        user = foundUser
-        checkPassword(userRequest.password, foundUser)
+        if(foundUser.length === 0){
+          response.status(422).send({ error: 'Email does not Exist' });
+        } else {
+          user = foundUser
+          checkPassword(userRequest.password, foundUser)
+            .then((res) => createToken())
+            .then(token => updateUserToken(token, user))
+            .then(() => {
+              delete user[0].password_digest
+              response.status(201).json(user)
+            })
+        }
       })
-      .then((res) => createToken())
-      .then(token => updateUserToken(token, user))
-      .then(() => {
-        delete user[0].password_digest
-        response.status(201).json(user)
-      })
-      .catch((error) => console.error(error))
+      .catch(error => {
+        response.status(500).json({ error: error.message })
+      });
 }
 
 
@@ -106,11 +127,11 @@ const encryptPassword = (password) => {
   })
 }
 
-const findUser = (userRequest) => {
-  return database('users')
-    .where('email', userRequest.email)
-    .select()
-}
+// const findUser = (userRequest) => {
+//   return database('users')
+//     .where('email', userRequest.email)
+//     .select()
+// }
 
 const updateUserToken = (token, user) => {
   console.log(user)
