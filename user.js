@@ -18,19 +18,19 @@ const signup = (request, response) => {
         return
       } 
     }
-      encryptPassword(user.password)
-        .then( encryptedPassword => {
-          delete user.password
-          user.password_digest = encryptedPassword
-        })
-        .then(() => createToken())
-        .then(token => user.token = token)
-        .then(() => createUser(user))
-        .then(user => {
-          delete user.password_digest
-          response.status(201).json({ user })
-        })
-        .catch((error) => console.error(error)) 
+    encryptPassword(user.password)
+      .then( encryptedPassword => {
+        delete user.password
+        user.password_digest = encryptedPassword
+      })
+      .then(() => createToken())
+      .then(token => user.token = token)
+      .then(() => createUser(user))
+      .then(user => {
+        delete user.password_digest
+        response.status(201).json({ user })
+      })
+      .catch((error) => console.error(error)) 
 }
 
 const signin = (request, response) => {
@@ -46,20 +46,19 @@ const signin = (request, response) => {
         return
       }
     }
-      findUser(userRequest)
-        .then(foundUser => {
-          user = foundUser
-          checkPassword(userRequest.password, foundUser)
-        })
-        .then((res) => createToken())
-        .then(token => updateUserToken(token, user))
-        .then(() => {
-          delete user[0].password_digest
-          response.status(201).json(user)
-        })
-        .catch((error) => console.error(error))
-    
-  }
+    findUser(userRequest)
+      .then(foundUser => {
+        user = foundUser
+        checkPassword(userRequest.password, foundUser)
+      })
+      .then((res) => createToken())
+      .then(token => updateUserToken(token, user))
+      .then(() => {
+        delete user[0].password_digest
+        response.status(201).json(user)
+      })
+      .catch((error) => console.error(error))
+}
 
 
 const checkPassword = (requestPassword, foundUser) => {
