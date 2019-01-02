@@ -13,10 +13,11 @@ const signup = (request, response) => {
     'username',
     'password',
     ]) {
-    if (user[requiredParameter] === undefined) {
-      response.status(422).send({error: `Missing required parameter`});
-      return
-    } else {
+      if (user[requiredParameter] === undefined) {
+        response.status(422).send({error: `Missing required parameter`});
+        return
+      } 
+    }
       encryptPassword(user.password)
         .then( encryptedPassword => {
           delete user.password
@@ -28,11 +29,8 @@ const signup = (request, response) => {
         .then(user => {
           delete user.password_digest
           response.status(201).json({ user })
-          return
         })
         .catch((error) => console.error(error)) 
-    }
-  }
 }
 
 const signin = (request, response) => {
@@ -43,15 +41,15 @@ const signin = (request, response) => {
     'email',
     'password',
     ]) {
-    if (userRequest[requiredParameter] === undefined) {
-      response.status(422).send({error: 'Missing required parameter'});
-      return
-    } else {
+      if (userRequest[requiredParameter] === undefined) {
+        response.status(422).send({error: 'Missing required parameter'});
+        return
+      }
+    }
       findUser(userRequest)
         .then(foundUser => {
           user = foundUser
-
-          return checkPassword(userRequest.password, foundUser)
+          checkPassword(userRequest.password, foundUser)
         })
         .then((res) => createToken())
         .then(token => updateUserToken(token, user))
@@ -60,9 +58,9 @@ const signin = (request, response) => {
           response.status(201).json(user)
         })
         .catch((error) => console.error(error))
-    }
+    
   }
-}
+
 
 const checkPassword = (requestPassword, foundUser) => {
   return new Promise((resolve, reject) =>
