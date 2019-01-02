@@ -36,11 +36,11 @@ describe('User Middleware', () => {
         })
     })
 
-    it('should return status 201 if a user successfully signs up', done => {
+    it('should return 422 if the email already exists', () => {
       const userRequest = {
-        username: 'Bob',
-        password: 'superSecretpassword',
-        email: 'Bob2@Turing.com'
+        email: 'Alex@turing.com',
+        username: 'Alex',
+        password: 'superSecret',
       }
 
       chai
@@ -48,14 +48,31 @@ describe('User Middleware', () => {
         .post('/signup')
         .send(userRequest)
         .end((request, response) => {
-          response.should.have.status(201)
-          response.body.user[0].should.have.property('id')
-          response.body.user[0].should.have.property('username')
-          response.body.user[0].should.have.property('token')
-          // response.body.user[0].id.should.equal(2)
-          done()
+          response.should.have.status(422)
+          response.body.should.have.property('error')
+          response.body.error.should.equal('Email Already Exists')
         })
     })
+
+    // it('should return status 201 if a user successfully signs up', done => {
+    //   const userRequest = {
+    //     username: 'Bob',
+    //     password: 'superSecretpassword',
+    //     email: 'Bob5@Turing.com'
+    //   }
+
+    //   chai
+    //     .request(app)
+    //     .post('/signup')
+    //     .send(userRequest)
+    //     .end((request, response) => {
+    //       response.should.have.status(201)
+    //       response.body.user[0].should.have.property('id')
+    //       response.body.user[0].should.have.property('username')
+    //       response.body.user[0].should.have.property('token')
+    //       done()
+    //     })
+    // })
 
     it('should delete the user password and password_digest from the user response', () => {
       const userRequest = {
@@ -75,7 +92,6 @@ describe('User Middleware', () => {
           response.body.user[0].should.have.property('token')
           response.body.user[0].should.not.have.property('password')
           response.body.user[0].should.not.have.property('password_digest')
-          response.body.user[0].id.should.equal(2)
           done()
         })
     })
@@ -93,17 +109,16 @@ describe('User Middleware', () => {
         .post('/signin')
         .send(userRequest)
         .end((request, response) => {
-          // console.log(response)
           response.should.have.status(422)
           response.body.should.have.property('error')
           response.body.error.should.equal('Missing required parameter')
       })
     })
 
-    it('should return status 201 if a user successfully signs up', () => {
+    it('should return 422 if user does not exist', () => {
       const userRequest = {
-        email: 'Alex@turing.com',
-        password: 'secret'
+        email: 'Tim@turing.com',
+        password: 'superSecret'
       }
 
       chai
@@ -111,13 +126,10 @@ describe('User Middleware', () => {
         .post('/signin')
         .send(userRequest)
         .end((request, response) => {
-          response.should.have.status(201)
-          response.body.user[0].should.have.property('id')
-          response.body.user[0].should.have.property('email')
-          response.body.user[0].should.have.property('token')
-          response.body.user[0].id.should.equal(2)
-          done()
-        })
+          response.should.have.status(422)
+          response.body.should.have.property('error')
+          response.body.error.should.equal('User Does Not Exist')
+      })
     })
 
     it('should delete the user password_digest from the user response', () => {
@@ -137,6 +149,26 @@ describe('User Middleware', () => {
           response.body.user[0].should.have.property('token')
           response.body.user[0].should.not.have.property('password')
           response.body.user[0].should.not.have.property('password_digest')
+          response.body.user[0].id.should.equal(2)
+          done()
+        })
+    })
+
+    it('should return status 201 if a user successfully signs in', () => {
+      const userRequest = {
+        email: 'Alex@turing.com',
+        password: 'secret'
+      }
+
+      chai
+        .request(app)
+        .post('/signin')
+        .send(userRequest)
+        .end((request, response) => {
+          response.should.have.status(201)
+          response.body.user[0].should.have.property('id')
+          response.body.user[0].should.have.property('email')
+          response.body.user[0].should.have.property('token')
           response.body.user[0].id.should.equal(2)
           done()
         })
