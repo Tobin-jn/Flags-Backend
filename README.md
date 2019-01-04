@@ -41,13 +41,13 @@ GET /api/v1/facts/:country_id  // get a specific question for a specific country
 ```
 #### Sign-In
 ```
-POST /api/v1/signin // Sign in with a user name and password
+POST /signin // Sign in with a user name and password
 --> returns an id, username, token, and points in a user object
 
 ```
 #### Sign-Up
 ```
-POST /api/v1/signup
+POST /signup
 --> returns a user object with the key of user and the value being the id, token, and username
 
 ```
