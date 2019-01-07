@@ -81,4 +81,4 @@ POST /signup
 
 
 
-## Database created and designed by Ben Hayek and Tobin Nelson.
+## Database created and designed by [Ben Hayek](https://github.com/benjaminhayek) and [Tobin Nelson](https://github.com/Tobin-jn).
