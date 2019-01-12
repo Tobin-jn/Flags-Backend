@@ -2,7 +2,30 @@
 
 ## Get ready to build your own game witht these jeopardy style questions, and flag and country outlines. With this API you can have access to all the information necessary to build you're own geography trivia game!
 
-### How to Use:
+### See it Live
+
+[World of Flags](http://flagz4u.herokuapp.com/) on Heroku.
+
+## Tech Stack
+- Node.js
+- Express
+- Knex.js
+- Heroku
+- Mocha
+- Chai 
+- Chai-http
+- Nightmare.js
+- Bcrypt
+
+## Screenshots
+
+### API Landing Page
+<img src='src/images/landing.png' alt='Main View' width='700' >
+
+### Schema
+<img src='src/images/landing.png' alt='Main View' width='700' >
+
+## How to Use:
 
 #### Install and Start Server
 * Clone this repo.
@@ -19,16 +42,35 @@
 * `knex seed:run`
 
 #### Testing 
+World of Flags uses Mocha and Chai for backend testing.
 * `To test run npm test`
 
-### API Endpoints
+## API Endpoints
 #### Countries
-```
 GET /api/v1/countries // get all countries
 --> returns an array of country objects
 
-GET /api/v1/countries/:id // get a specific country
---> returns array with specific country object
+GET a specific country
+```/api/v1/countries/:id```
+
+Returns array with specific country object
+```
+[
+  {
+    "id": 189,
+    "country_fact": "It's been said that this country \"has but one hero, William Tell, and he is a myth\"",
+    "country_id": 100,
+    "created_at": "2018-12-22T16:48:48.971Z",
+    "updated_at": "2018-12-22T16:48:48.971Z"
+  },
+  {
+    "id": 190,
+    "country_fact": "In 2002 this country shifted out of neutral & finally joined the U.N.",
+    "country_id": 100,
+    "created_at": "2018-12-22T16:48:48.971Z",
+    "updated_at": "2018-12-22T16:48:48.971Z"
+  },
+]
 ```
 #### Questions
 ```
@@ -68,17 +110,7 @@ POST /signup
     - Make sure all tests are passing before you make a Pull Request
     - Before submitting, Rebase your work on the current master branch
 
-## Technologies Used
-- Node.js
-- Express
-- Knex.js
-- Heroku
-- Mocha
-- Chai 
-- Chai-http
-- Nightmare.js
-- Bcrypt
 
-
-
-## Database created and designed by [Ben Hayek](https://github.com/benjaminhayek) and [Tobin Nelson](https://github.com/Tobin-jn).
+## Database created and designed by 
+* [Ben Hayek](https://github.com/benjaminhayek)
+* [Tobin Nelson](https://github.com/Tobin-jn)
