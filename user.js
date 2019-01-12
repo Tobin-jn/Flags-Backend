@@ -128,7 +128,6 @@ const encryptPassword = (password) => {
 }
 
 const updateUserToken = (token, user) => {
-  console.log(user)
   return database('users')
     .where('id', user[0].id)
     .update( 'token', token)
