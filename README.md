@@ -1,6 +1,6 @@
-# Flag Trivia Back-end
+# Flag Trivia Back-End
 
-## Get ready to build your own game witht these jeopardy style questions, and flag and country outlines. With this API you can have access to all the information necessary to build you're own geography trivia game!
+#### Get ready to build your own geographt-themed game with these jeopardy style questions, and flag and country outlines. With this API you can have access to all the information necessary to build you're own geography trivia game!
 
 ### See it Live
 
@@ -20,10 +20,10 @@
 ## Screenshots
 
 ### API Landing Page
-<img src='src/images/landing.png' alt='Main View' width='700' >
+<img src='data/screenshot.png' alt='Main View' width='700' >
 
 ### Schema
-<img src='src/images/landing.png' alt='Main View' width='700' >
+<img src='data/schema.png' alt='Main View' width='700' >
 
 ## How to Use:
 
@@ -46,14 +46,46 @@ World of Flags uses Mocha and Chai for backend testing.
 * `To test run npm test`
 
 ## API Endpoints
-#### Countries
-GET /api/v1/countries // get all countries
---> returns an array of country objects
+### Countries
+####GET all countries
+```
+/api/v1/countries 
+```
 
-GET a specific country
-```/api/v1/countries/:id```
+Returns an array of all country objects
 
-Returns array with specific country object
+####GET a specific country
+```
+/api/v1/countries/:id
+```
+
+Returns the specific country object. Example:
+```
+{
+  "id": 100,
+  "name": "Switzerland",
+  "flag": "./images/flags/switzerland.png",
+  "country_outline": "./images/outlines/switzerland.png",
+  "created_at": "2018-12-22T16:48:48.903Z",
+  "updated_at": "2018-12-22T16:48:48.903Z"
+}
+```
+
+### Questions
+
+#### GET get all questions/facts
+```
+/api/v1/facts
+```
+
+Returns an array of all question objects.
+
+#### GET questions for a specific country
+```
+/api/v1/facts/:country_id
+```
+
+Returns an array with a specific question object. Example:
 ```
 [
   {
@@ -72,27 +104,49 @@ Returns array with specific country object
   },
 ]
 ```
-#### Questions
-```
-GET /api/v1/facts // get all questions/facts
---> returns an array of all question objects
 
-GET /api/v1/facts/:country_id  // get a specific question for a specific country
---> returns an array with a specific question object
+### Users
 
+#### POST Sign in with a username and password
 ```
-#### Sign-In
+/signin
 ```
-POST /signin // Sign in with a user name and password
---> returns an id, username, token, and points in a user object
 
+Returns an id, username, token, and points in a user object. Example:
 ```
-#### Sign-Up
+[
+    {
+        "id": 1,
+        "username": "Alex",
+        "email": "Alex@Turing.com",
+        "token": "******EXAMPLE******"
+        "points": null,
+        "created_at": "2018-12-22T18:56:27.634Z",
+        "updated_at": "2018-12-22T18:56:27.634Z"
+    }
+]
 ```
-POST /signup
---> returns a user object with the key of user and the value being the id, token, and username
 
+#### POST Sign up a new user with a username, email, and password
 ```
+/signup
+```
+
+Returns an id, token, and username. Example:
+```
+{
+  "user": [
+    {
+      "id": 1,
+      "username": "Alex",
+      "email": "Alex@Turing.com",
+      "created_at": "2018-12-22T18:56:27.634Z",
+      "token": "******EXAMPLE******"
+    }
+  ]
+}
+```
+
 # To Contribute to the Project:
 
 - Follow the setup instructions above to get the app up and running locally on your machine.
