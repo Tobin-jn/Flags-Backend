@@ -47,14 +47,14 @@ World of Flags uses Mocha and Chai for backend testing.
 
 ## API Endpoints
 ### Countries
-####GET all countries
+#### GET all countries
 ```
 /api/v1/countries 
 ```
 
 Returns an array of all country objects
 
-####GET a specific country
+#### GET a specific country
 ```
 /api/v1/countries/:id
 ```
