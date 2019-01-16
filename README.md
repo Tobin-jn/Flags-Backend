@@ -4,7 +4,7 @@
 
 ### See it Live
 
-[World of Flags](http://flagz4u.herokuapp.com/) on Heroku.
+[World of Flags](https://world-of-flags-backend.herokuapp.com/) on Heroku.
 
 ## Tech Stack
 - Node.js
