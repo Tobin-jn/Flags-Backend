@@ -1,4 +1,4 @@
-# Flag Trivia Back-End
+# World of Flags Back-End
 
 #### Get ready to build your own geographt-themed game with these jeopardy style questions, and flag and country outlines. With this API you can have access to all the information necessary to build you're own geography trivia game!
 
